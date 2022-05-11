@@ -13,7 +13,7 @@ function MultiActionAreaCard({ photo }) {
         <CardMedia
           component="img"
           height="140"
-          image={photo}
+          src={photo.src.original}
           alt={photo.alt}
         />
         <CardContent>
