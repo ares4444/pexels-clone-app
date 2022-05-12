@@ -4,7 +4,7 @@
 * {
   border: 0;
   box-sizing: border-box;
-  margin: 0;
+  margin: auto;
   padding: 0;
 }
 :root {
@@ -20,15 +20,16 @@ body, .input {
 body, .search-bar {
   display: flex;
 }
+
 body {
-  background: #bff0f1;
-  height: 100vh;
+  padding-top: 1em;
 }
 
 h1 {
   font-family: 'Merienda';
-  font-size: 30px;
-  color: rgb(228, 199, 212);
+  font-size: 40px;
+  color: rgb(226, 159, 189);
+  font-weight: 700;
 }
 
 .card-alt {
@@ -69,7 +70,7 @@ h1 {
   background: transparent;
   border-radius: 1.5em;
   box-shadow: 0 0 0 0.4em #171717 inset;
-  padding: 0.75em;
+  padding: 1.25em;
   transform: translate(0.5em,0.5em) scale(0.5);
   transform-origin: 100% 0;
   -webkit-appearance: none;
@@ -173,5 +174,11 @@ h1 {
   }
   .search-btn {
     background: #f1f1f1;
+  }
+}
+
+@media(max-width: 700px) {
+  .container {
+    grid-template-columns: 1fr;
   }
 }

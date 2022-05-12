@@ -5,7 +5,8 @@ import useFetch from '../useFetch';
 import MultiActionAreaCard from '../components/ImageCard';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import { Box } from '@mui/material';
+import { Box, Pagination } from '@mui/material';
+// import ReactPaginate from 'react-paginate';
 
 export default function Home() {
   const [ term, setTerm ] = useState('');
@@ -35,22 +36,28 @@ export default function Home() {
           </button>
         </form>
         </Box>
-        <Container sx={{
+        <Container className="container" sx={{
           marginX: 5,
           margin: 5,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           }}>
-          <Grid container sx={{
+          <Grid container item sx={{
             display: 'grid', 
-            gridTemplateColumns: 'repeat(3, 4fr)',
+            gridTemplateColumns: 'repeat(3, 1fr)',
             gap: 1,
             columnGap: 2
             }}>
             {photos.map((photo, index) => <MultiActionAreaCard photo={photo} key={index}/>)}
           </Grid>
         </Container>
+        <Box>
+            <Pagination 
+            count={10} 
+            color="secondary"
+            />
+        </Box>
       </div>
     </>
     

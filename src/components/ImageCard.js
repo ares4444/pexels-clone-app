@@ -30,15 +30,15 @@ function MultiActionAreaCard({ photo }) {
               Photo By {photo.photographer}
             </Typography>
           </CardContent>
+          <CardActions>
+            <IconButton aria-label="add to favorites">
+              <FavoriteIcon />
+            </IconButton>
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+          </CardActions>
         </CardActionArea>
-        <CardActions>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
-        </CardActions>
       </Card>
   );
 }
