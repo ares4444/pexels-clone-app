@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 
 const useFetch = (url) => {
-  const [photos, setPhotos] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [ photos, setPhotos ] = useState([]);
+  const [ isLoading, setIsLoading ] = useState(false);
+  const [ error, setError ] = useState(null);
+  const [ resultsPerPage, setResultsPerPage ] = useState(15);
 
   useEffect(() => {
     setTimeout(() => {
@@ -21,6 +22,7 @@ const useFetch = (url) => {
         setIsLoading(false);
         setPhotos(data.photos);
         setError(null);
+        setResultsPerPage(data.per_page)
       })
       .catch(err => {
         // auto catches network / connection error
@@ -30,7 +32,7 @@ const useFetch = (url) => {
     }, 1000);
   }, [url])
 
-  return { photos, isLoading, error };
+  return { photos, isLoading, error, resultsPerPage };
 }
  
 export default useFetch;

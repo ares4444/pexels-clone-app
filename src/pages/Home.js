@@ -5,12 +5,20 @@ import useFetch from '../useFetch';
 import MultiActionAreaCard from '../components/ImageCard';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import { Box, Pagination } from '@mui/material';
-// import ReactPaginate from 'react-paginate';
+import { Box } from '@mui/material';
+// import Pagination from '@material-ui/lab/Pagination'
+import AppPagination from '../components/AppPagination';
+
 
 export default function Home() {
   const [ term, setTerm ] = useState('');
-  const { photos, isLoading, error } = useFetch(`https://api.pexels.com/v1/search?query=${term}`);
+  // const [ totalResults, setTotalResults ] = useState(0);
+  const [ currentPage, setCurrentPage ] = useState(1);
+  const { photos, isLoading, error, resultsPerPage } = useFetch(`https://api.pexels.com/v1/search/?page=${currentPage}&query=${term}`);
+
+  const handleChange = (e) => {
+    setTerm(e.target.value);
+  }
 
   return (
     <>
@@ -29,7 +37,7 @@ export default function Home() {
           placeholder="What are you looking for?"
           minLength={2}
           debounceTimeout={1000}
-          onChange={e => setTerm(e.target.value)}
+          onChange={handleChange}
           ></DebounceInput>
           <button className="search-btn" type="submit">
             <span>Search</span>
@@ -51,14 +59,9 @@ export default function Home() {
             }}>
             {photos.map((photo, index) => <MultiActionAreaCard photo={photo} key={index}/>)}
           </Grid>
-        </Container>
-        <Box>
-            <Pagination 
-            count={10} 
-            color="secondary"
-            />
-        </Box>
+        </Container>    
       </div>
+      <AppPagination setCurrentPage={setCurrentPage} pageNumber={resultsPerPage}/>
     </>
     
   )
