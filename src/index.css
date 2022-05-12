@@ -2,14 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
 
 * {
-  border: 0;
   box-sizing: border-box;
-  margin: auto;
+  margin: 0;
   padding: 0;
 }
 :root {
   font-size: calc(16px + (24 - 16)*(100vw - 320px)/(1920 - 320));
 }
+
 body, button, .input {
   font: 1em Hind, sans-serif;
   line-height: 1.5em;
@@ -23,6 +23,16 @@ body, .search-bar {
 
 body {
   padding-top: 1em;
+  margin: auto;
+  justify-content: center;
+}
+
+.card-container:hover {
+  box-shadow: 0px 0px 20px 3px #00000042;
+}
+
+.card-container {
+  margin: .25em;
 }
 
 h1 {
@@ -34,6 +44,37 @@ h1 {
 
 .card-alt {
   font-family: 'Nanum Myeongjo', serif;
+}
+
+.card-container {
+  grid-template-columns: repeat(auto-fit, minmax('250px', '1fr')),
+} 
+
+.card-media {
+  transition: 0.3s ease box-shadow;
+}
+
+.card-photographer {
+  width: 100%;
+  padding: 20px;
+  position: absolute;
+  background-color: #00000040;
+  color: aliceblue;
+  left: 0;
+  right: 0;
+  bottom: -70px;
+  font-weight: 300;
+  transition: 0.5s ease-in-out bottom;
+}
+
+.card-photographer:hover {
+  bottom: 0;
+}
+
+.card-actions {
+  position: absolute;
+  top: 8px;
+  right: 16px;
 }
 
 .search-bar .input,
@@ -87,6 +128,7 @@ h1 {
   box-shadow: 0 0 0 0.1em #d9d9d9 inset;
   transform: scale(1);
 }
+
 .search-btn {
   background: #171717;
   border-radius: 0 0.75em 0.75em 0 / 0 1.5em 1.5em 0;
@@ -104,14 +146,14 @@ h1 {
 }
 .search-btn:before {
   border-radius: 50%;
-  box-shadow: 0 0 0 0.2em #f1f1f1 inset;
+  box-shadow: 0 0 0 0.2em rgb(228, 199, 212) inset;
   top: 0.75em;
   left: 0.75em;
   width: 1.2em;
   height: 1.2em;
 }
 .search-btn:after {
-  background: #f1f1f1;
+  background: rgb(228, 199, 212);
   border-radius: 0 0.25em 0.25em 0;
   top: 51%;
   left: 51%;
@@ -165,7 +207,7 @@ h1 {
     background-position: center;
   }
   .search-bar .input {
-    box-shadow: 0 0 0 0.4em #f1f1f1 inset;
+    box-shadow: 0 0 0 0.4em rgb(228, 199, 212) inset;
   }
   .search-bar .input:focus,
   .search-bar .input:valid {
@@ -173,12 +215,17 @@ h1 {
     box-shadow: 0 0 0 0.1em #B73225 inset;
   }
   .search-btn {
-    background: #f1f1f1;
+    background: rgb(228, 199, 212);
   }
 }
 
-@media(max-width: 700px) {
-  .container {
-    grid-template-columns: 1fr;
+@media only screen and (min-width: 900px) {
+  .card-container {
+    grid-gap: 30px;
   }
+
+  .container {
+    max-width: 1160px;
+  }
+
 }

@@ -4,7 +4,7 @@ const useFetch = (url) => {
   const [ photos, setPhotos ] = useState([]);
   const [ isLoading, setIsLoading ] = useState(false);
   const [ error, setError ] = useState(null);
-  const [ resultsPerPage, setResultsPerPage ] = useState(15);
+  const [ resultsPerPage, setResultsPerPage ] = useState(1);
 
   useEffect(() => {
     setTimeout(() => {

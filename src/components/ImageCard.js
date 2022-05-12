@@ -11,12 +11,20 @@ import { CardActionArea, CardActions } from '@mui/material';
 function MultiActionAreaCard({ photo }) {
 
   return (
-      <Card padding={2}>
+      <Card className="card-container" padding={2} 
+      sx={{ 
+        width: '100%',
+        display: 'grid',
+        marginTop: '50px',
+        gridGap: '20px',
+      }}>
         <CardActionArea>
-          <CardMedia sx={{ 
+          <CardMedia className="card-media" sx={{ 
               width: '100%',
-              height: "100%",
-              objectFit: 'cover'
+              height: '100%',
+              position: 'relative',
+              overflow: 'hidden',
+              borderRadius: '8px',
             }}
             component="img"
             src={photo.src.original}
@@ -26,12 +34,12 @@ function MultiActionAreaCard({ photo }) {
             <Typography className="card-alt" gutterBottom variant="h5" component="div" sx={{ fontWeight: 'light' }}>
               {photo.alt}
             </Typography>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography className="card-photographer" gutterBottom variant="h6" component="div">
               Photo By {photo.photographer}
             </Typography>
           </CardContent>
-          <CardActions>
-            <IconButton aria-label="add to favorites">
+          <CardActions className="card-actions">
+            <IconButton className="favorite-icon"         aria-label="add to favorites" >
               <FavoriteIcon />
             </IconButton>
             <IconButton aria-label="share">

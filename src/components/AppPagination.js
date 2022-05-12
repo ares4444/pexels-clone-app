@@ -8,6 +8,7 @@ const useStyles = makeStyles(theme => ({
         bottom: 0,
         zIndex: 200,
         backgroundColor: "lightblue",
+        opacity: 0.75,
         padding: "10px 80px",
         color: "primary",
         width: "100%",

@@ -21,7 +21,7 @@ export default function Home() {
   }
 
   return (
-    <>
+    <div>
       <div className="home">
         <h1>Go on, Click me!</h1>
         { error && console.log(error) }
@@ -52,7 +52,7 @@ export default function Home() {
           justifyContent: 'center',
           }}>
           <Grid container item sx={{
-            display: 'grid', 
+            display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
             gap: 1,
             columnGap: 2
@@ -62,7 +62,7 @@ export default function Home() {
         </Container>    
       </div>
       <AppPagination setCurrentPage={setCurrentPage} pageNumber={resultsPerPage}/>
-    </>
+    </div>
     
   )
 }
